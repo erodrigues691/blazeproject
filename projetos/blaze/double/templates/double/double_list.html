@@ -1,15 +1,38 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+{% extends 'main/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Double</title>
-</head>
+{% block content  %}
 
-<body>
-    <h1>Double</h1>
-</body>
+<a  href =" {% url 'double.novo' %}">Novo</a> 
 
-</html>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data de nascimento</th>
+            <th>Ativa</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for dbl in object_list %}
+        <tr>
+            <td>{{ dbl.nome }}</td>
+            <td>{{ dbl.data_nascimento|date:"d/m/Y" }}</td>
+            <td>
+            {% if dbl.ativo %}
+            Sim
+            {% else %}
+            Não
+            {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'dbl.editar' pessoa.pk %}">Editar</a>
+                <a href="{% url 'dbl.remover' pessoa.pk %}">Remover</a>
+                <a href="{% url 'dbl.contatos' pessoa.pk %}">Contatos</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content  %}

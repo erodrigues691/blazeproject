@@ -4,6 +4,8 @@ from django.db import models
 
 class Double(models.Model):
     nome = models.CharField(max_length=256)
-    datanascimento = models.DateTimeField(null=True, blank=True)
+    data_nascimento = models.DateTimeField(null=True, blank=True)
     ativo = models.BooleanField(default=True)
-
+    
+    def __str__(self) -> str():
+        return self.nome
