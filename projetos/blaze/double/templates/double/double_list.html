@@ -2,6 +2,11 @@
 
 {% block content  %}
 
+<form method="GET">
+    <input type="text" name="nome" placeholder="Search..." autocomplete="off"/>
+    <input type="submit" value="Search" />
+</form>
+
 <a  href =" {% url 'double.novo' %}">Novo</a> 
 
 <table>
@@ -26,9 +31,9 @@
             {% endif %}
             </td>
             <td>
-                <a href="{% url 'dbl.editar' pessoa.pk %}">Editar</a>
-                <a href="{% url 'dbl.remover' pessoa.pk %}">Remover</a>
-                <a href="{% url 'dbl.contatos' pessoa.pk %}">Contatos</a>
+                <a href="{% url 'double.editar' dbl.pk %}">Editar</a>
+                <a href="{% url 'double.remover' dbl.pk %}">Remover</a>
+                {% comment %} <a href="{% url 'dbl.contatos' dbl.pk %}">Contatos</a> {% endcomment %}
             </td>
         </tr>
         {% endfor %}
