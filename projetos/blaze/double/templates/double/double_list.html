@@ -33,7 +33,7 @@
             <td>
                 <a href="{% url 'double.editar' dbl.pk %}">Editar</a>
                 <a href="{% url 'double.remover' dbl.pk %}">Remover</a>
-                {% comment %} <a href="{% url 'dbl.contatos' dbl.pk %}">Contatos</a> {% endcomment %}
+                <a href="{% url 'double.contatos' dbl.pk %}">Contatos</a> 
             </td>
         </tr>
         {% endfor %}
